@@ -4,11 +4,22 @@ import (
 	"fmt"
 	"net"
 	"strconv"
+	"strings"
 )
 
 type Module struct {
 	id   string
 	port int
+}
+
+func NewModule(id string) Module {
+
+	m := Module{
+		strings.ToLower(id),
+		-1,
+	}
+
+	return m
 }
 
 func (m *Module) isPortSet() bool {
@@ -25,9 +36,9 @@ func setModulePort(m *Module) {
 	}
 }
 
-func DebugModules(modules []Module) {
+func PrintModules(modules []Module) {
 	for _, m := range modules {
-		fmt.Println(m.id + " " + strconv.Itoa(m.port))
+		fmt.Println(m.id + ": " + strconv.Itoa(m.port))
 	}
 }
 

@@ -2,17 +2,10 @@ package main
 
 func main() {
 	var modules = []Module{
-		Module{
-			id:   "bank",
-			port: -1,
-		},
-
-		Module{
-			id:   "mine",
-			port: -1,
-		},
+		NewModule("bank"),
+		NewModule("mine"),
 	}
 
 	InitializeModules(modules)
-	DebugModules(modules)
+	PrintModules(modules)
 }
